@@ -1,11 +1,10 @@
 from flask_restplus import Namespace, Resource
-from requests import get, post
+import requests
 from app import app
 
 api = Namespace(
     'home', description='JENKINS')
 parser = api.parser()
-
 
 @api.route('')
 class homepage(Resource):
@@ -15,5 +14,6 @@ class homepage(Resource):
 
     @api.doc(parser=parser)
     def post(self):
-      post()
+      response = requests.post('http://jenkins_host/job/MY_JOB_NAME/build', auth=('username', 'API_TOKEN'))
+      return response
       
