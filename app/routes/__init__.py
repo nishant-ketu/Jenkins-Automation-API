@@ -4,8 +4,8 @@ from flask_restplus import Api
 from app import app
 from .home import api as home_api
 
-swagger = Blueprint('JENKINS_AUTOMATION-API', __name__, url_prefix='/api')
-api = Api(swagger, version='1.0', title='JENKINS AUTOMATIONC API')
+swagger = Blueprint('JENKINS_AUTOMATION_API', __name__, url_prefix='/api')
+api = Api(swagger, version='1.0', title='JENKINS AUTOMATION API')
 
 api.add_namespace(home_api)
 
