@@ -31,17 +31,17 @@ class build(Resource):
         ('commands', api.payload['command']),
       )
       response = requests.post('http://127.0.0.1:8080/job/'+ api.payload['Job_name']+'/buildWithParameters', params=params, auth=('nishant', '11047f6c472c8d601da909a63377d31352'))
-      time.sleep(30)
+      time.sleep(15)
       response = requests.get('http://127.0.0.1:8080/job/A_new_job/lastBuild/api/json', auth=('nishant', '11047f6c472c8d601da909a63377d31352'))
       # print(response.text)
       res = json.loads(response.text)
       if res['building']:
-        time.sleep(30)
+        time.sleep(10)
       else:
         if res['result'] == "SUCCESS":
-          return "Job was successfully build"
+          return "Build #"+ res['id'] +" was successfull"
         else:
-          return "Job has failed"
+          return "Build #"+ res['id'] +" has failed"
 
 
     @api.doc(parser=parser)
