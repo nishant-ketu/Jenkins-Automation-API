@@ -80,7 +80,7 @@ class status(Resource):
       time.sleep(60)
     else:
       if res['result'] == "SUCCESS":
-        return "Job was successfully build"
+        return "Build #"+ res['id'] +" was successfull"
       else:
-        return "Job has failed"
+        return "Build #"+ res['id'] +" has failed"
             
