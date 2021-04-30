@@ -17,6 +17,6 @@ pylint==2.3.1
 pymongo==3.7.2
 requests==2.21.0
 six==1.12.0
-urllib3==1.25.3
+urllib3==1.25.8
 Werkzeug==0.15.3
 
